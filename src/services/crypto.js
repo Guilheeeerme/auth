@@ -1,14 +1,11 @@
-const bcrypt = require('bcrypt')
-const { crypto: config } = require('../../config')
+const bcrypt = require("bcryptjs");
+const { crypto: config } = require("../../config");
 
-const hash = value =>
-  bcrypt
-    .hash(value, config.hashSaltRounds)
+const hash = (value) => bcrypt.hash(value, config.hashSaltRounds);
 
-const compare = (value, hash) =>
-  bcrypt.compare(value, hash)
+const compare = (value, hash) => bcrypt.compare(value, hash);
 
 module.exports = {
   hash,
   compare,
-}
+};
